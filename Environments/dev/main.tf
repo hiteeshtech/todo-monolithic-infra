@@ -1,0 +1,9 @@
+module "resource_group" {
+  source  = "../../modules/azurerm_resource_group"
+  rg_name = var.rg_name
+}
+
+module "virtual_network" {
+  source    = "../../modules/azurerm_networking"
+  vnet_name = var.vnet_name
+}
