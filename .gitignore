@@ -16,6 +16,9 @@ crash.*.log
 *.tfvars
 *.tfvars.json
 
+# Include specific tfvars files that don't contain sensitive data
+!Environments/dev/terraform.tfvars
+
 # Ignore override files as they are usually used to override resources locally and so
 # are not checked in
 override.tf
