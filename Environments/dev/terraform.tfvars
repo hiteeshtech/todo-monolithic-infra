@@ -31,3 +31,16 @@ vnet_name = {
     }]
   }
 }
+
+key_vaults = {
+  kv_frontend = {
+    name     = "hiteshkeyvault01"
+    location = "centralindia"
+    rg_name  = "hitu-rg-01"
+    tags = {
+      environment = "dev"
+      project     = "todo-monolithic-infra"
+    }
+  }
+}
+

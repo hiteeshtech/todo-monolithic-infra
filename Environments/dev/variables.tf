@@ -22,3 +22,13 @@ variable "rg_name" {
   }))
   description = "Resource group configuration"
 }
+
+variable "key_vaults" {
+  type = map(object({
+    name     = string
+    location = string
+    rg_name  = string
+    tags     = optional(map(string))
+  }))
+  description = "Key Vault configuration"
+}

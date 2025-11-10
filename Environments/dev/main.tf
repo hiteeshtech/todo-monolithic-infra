@@ -7,3 +7,9 @@ module "virtual_network" {
   source    = "../../modules/azurerm_networking"
   vnet_name = var.vnet_name
 }
+
+module "key_vaults" {
+  source  = "../../modules/azurerm_key_vaults"
+  kv_name = var.key_vaults
+}
+
