@@ -13,3 +13,7 @@ module "key_vaults" {
   kv_name = var.key_vaults
 }
 
+module "public_ip" {
+  source         = "../../modules/azurerm_public_ip"
+  public_ip_name = var.public_ip_name
+}
