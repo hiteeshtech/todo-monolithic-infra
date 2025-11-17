@@ -25,6 +25,12 @@ module "virtual_machine" {
 }
 
 module "mssql_server" {
-  source = "../../modules/azurerm_sql_server"
+  source            = "../../modules/azurerm_sql_server"
   mssql_server_name = var.mssql_server_name
+}
+
+module "mssql_database" {
+  source          = "../../modules/azurerm_sql_database"
+  mssql_db_name   = var.mssql_db_name
+  mssql_server_id = module.mssql_server.mssql_server_id["sql_server_1"]
 }

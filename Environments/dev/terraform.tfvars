@@ -71,8 +71,8 @@ vms = {
     vm_name        = "hiteshvmfrontend"
     size           = "Standard_F2"
     kv_name        = "hiteshkeyvault01"
-    # admin_username = ""
-    # admin_password = ""
+    admin_username = "sharmah91"
+    admin_password = "sharmah0123@@"
     source_image_reference = {
       publisher = "Canonical"
       offer     = "0001-com-ubuntu-server-jammy"
@@ -91,8 +91,8 @@ vms = {
     vm_name        = "hiteshvmbackend"
     size           = "Standard_F2"
     kv_name        = "hiteshkeyvault01"
-    # admin_username = ""
-    # admin_password = ""
+    admin_username = "sharmah91"
+    admin_password = "Sharma0123@@"
     source_image_reference = {
       publisher = "Canonical"
       offer     = "0001-com-ubuntu-server-jammy"
@@ -110,6 +110,17 @@ mssql_server_name = {
     location            = "centralindia"
     version             = "12.0"
     minimum_tls_version = "1.2"
+  }
+}
+
+mssql_db_name = {
+  mssql_db_1 = {
+    mssql_db_name = "hitusqldb-01"
+    collation     = "SQL_Latin1_General_CP1_CI_AS"
+    license_type  = "BasePrice"
+    max_size_gb   = 10
+    sku_name      = "GP_Gen5_2"
+    enclave_type  = "Default"
   }
 }
 
