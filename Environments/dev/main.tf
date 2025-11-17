@@ -23,3 +23,8 @@ module "virtual_machine" {
   vms    = var.vms
 
 }
+
+module "mssql_server" {
+  source = "../../modules/azurerm_sql_server"
+  mssql_server_name = var.mssql_server_name
+}
