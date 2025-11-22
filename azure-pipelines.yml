@@ -13,7 +13,7 @@ steps:
     inputs:
       provider: 'azurerm'
       command: 'init'
-      workingDirectory: '$(System.DefaultWorkingDirectory)/enviroment/dev'
+      workingDirectory: '$(System.DefaultWorkingDirectory)/Enviroments/dev'
       backendAzureRmStorageAccountName: 'hiteshstoragepipeline'
       backendAzureRmContainerName: 'hiteshcontainerpipeline'
       backendAzureRmKey: 'terraform.tfstate'
@@ -23,6 +23,7 @@ steps:
     inputs:
       provider: 'azurerm'
       command: 'plan'
+      workingDirectory: '$(System.DefaultWorkingDirectory)/Environments/dev'
       environmentServiceNameAzureRM: 'Workload_Identity_Hitesh'
 
   - task: TerraformTask@5
@@ -30,6 +31,6 @@ steps:
     inputs:
       provider: 'azurerm'
       command: 'apply'
-      workingDirectory: '$(System.DefaultWorkingDirectory)/environment/dev'
+      workingDirectory: '$(System.DefaultWorkingDirectory)/Environments/dev'
       commandOptions: '--auto-approve'
       environmentServiceNameAzureRM: 'Workload_Identity_Hitesh'
