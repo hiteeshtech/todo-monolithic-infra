@@ -3,11 +3,13 @@ pool: Hitesh_Office_PC_Pool
 
 steps: 
   - task: TerraformInstaller@1
+    displayName: 'terraformtoolinstall'
     inputs:
       terraformVersion: 'latest'
 
 
   - task: TerraformTask@5
+    displayName: 'terraform init'
     inputs:
       provider: 'azurerm'
       command: 'init'
@@ -17,12 +19,14 @@ steps:
       backendAzureRmKey: 'terraform.tfstate'
 
   - task: TerraformTask@5
+    displayName: 'terraform plan'
     inputs:
       provider: 'azurerm'
       command: 'plan'
       environmentServiceNameAzureRM: 'Workload_Identity_Hitesh'
 
   - task: TerraformTask@5
+    displayName: 'terraform apply'
     inputs:
       provider: 'azurerm'
       command: 'apply'
