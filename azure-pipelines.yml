@@ -2,33 +2,30 @@ trigger: none
 pool: Hitesh_Office_PC_Pool
 
 steps: 
-  - 
-- task: TerraformInstaller@1
-  inputs:
-    terraformVersion: 'latest'
-
-- task: TerraformTask@5
-  inputs:
-    provider: 'azurerm'
-    command: 'init'
-    workingDirectory: '$(System.DefaultWorkingDirectory)/environment/dev'
-    backendServiceArm: 'Workload_Identity_Hitesh'
-    backendAzureRmStorageAccountName: 'hiteshstoragepipeline'
-    backendAzureRmContainerName: 'hiteshcontainerpipeline'
-    backendAzureRmKey: 'terraform.tfstate'
-
-- task: TerraformTask@5
-  inputs:
-    provider: 'azurerm'
-    command: 'plan'
-    workingDirectory: '$(System.DefaultWorkingDirectory)/environment/dev'
-    environmentServiceNameAzureRM: 'Workload_Identity_Hitesh'
+  - task: TerraformInstaller@1
+    inputs:
+      terraformVersion: 'latest'
 
 
-- task: TerraformTask@5
-  inputs:
-    provider: 'azurerm'
-    command: 'apply'
-    workingDirectory: '$(System.DefaultWorkingDirectory)/environment/dev'
-    commandOptions: '--auto-approve'
-    environmentServiceNameAzureRM: 'Workload_Identity_Hitesh'
+  - task: TerraformTask@5
+    inputs:
+      provider: 'azurerm'
+      command: 'init'
+      workingDirectory: '$(System.DefaultWorkingDirectory)/enviroment/dev'
+      backendAzureRmStorageAccountName: 'hiteshstoragepipeline'
+      backendAzureRmContainerName: 'hiteshcontainerpipeline'
+      backendAzureRmKey: 'terraform.tfstate'
+
+  - task: TerraformTask@5
+    inputs:
+      provider: 'azurerm'
+      command: 'plan'
+      environmentServiceNameAzureRM: 'Workload_Identity_Hitesh'
+
+  - task: TerraformTask@5
+    inputs:
+      provider: 'azurerm'
+      command: 'apply'
+      workingDirectory: '$(System.DefaultWorkingDirectory)/environment/dev'
+      commandOptions: '--auto-approve'
+      environmentServiceNameAzureRM: 'Workload_Identity_Hitesh'
