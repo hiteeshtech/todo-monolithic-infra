@@ -13,7 +13,7 @@ steps:
     inputs:
       provider: 'azurerm'
       command: 'init'
-      workingDirectory: '$(System.DefaultWorkingDirectory)/todo-monolithic-infra/Enviroments/dev'
+      workingDirectory: '$(System.DefaultWorkingDirectory)/todo-monolithic-infra/Environments/dev'
       backendAzureRmStorageAccountName: 'hiteshstoragepipeline'
       backendAzureRmContainerName: 'hiteshcontainerpipeline'
       backendAzureRmKey: 'terraform.tfstate'
